@@ -11,7 +11,7 @@ public class MyFirstProgram1 {
 
     System.out.println("3 + 3 < " + (3 * 3));
 
-    int l = 4;
+    int l = 6;
     int s = l * l;
     System.out.println("Square area with side " + l + " = " + s);
   }
