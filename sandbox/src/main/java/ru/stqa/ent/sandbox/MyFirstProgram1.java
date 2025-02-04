@@ -9,7 +9,11 @@ public class MyFirstProgram1 {
 
     System.out.println("m" + "e" + "o" + "w" + " :3");
 
-    System.out.println("3 + 3 = " + (3 * 3));
+    System.out.println("3 + 3 < " + (3 * 3));
+
+    int l = 4;
+    int s = l * l;
+    System.out.println("Square area with side " + l + " = " + s);
   }
 
 }
