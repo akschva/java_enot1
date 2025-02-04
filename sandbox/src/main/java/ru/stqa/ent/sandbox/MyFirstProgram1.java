@@ -3,7 +3,8 @@ package ru.stqa.ent.sandbox;
 public class MyFirstProgram1 {
 
   public static void main(String[] args) {
-    System.out.println("Meow meow!");
+    String something = "meowww";
+    System.out.println("Meow "+ something + "!");
 
     System.out.println(2 + 2.0);
 
@@ -11,8 +12,8 @@ public class MyFirstProgram1 {
 
     System.out.println("3 + 3 < " + (3 * 3));
 
-    int l = 6;
-    int s = l * l;
+    double l = 6;
+    double s = l * l;
     System.out.println("Square area with side " + l + " = " + s);
   }
 
