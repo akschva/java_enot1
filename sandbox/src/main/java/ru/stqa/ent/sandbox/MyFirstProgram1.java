@@ -18,6 +18,21 @@ public class MyFirstProgram1 {
 
     Rectangle m = new Rectangle(7, 4);
     System.out.println("Rectangle area " + m.a + " and " + m.b + " = " + area(m));
+
+
+
+    /* В Java функция - это именованный фрагмент кода, а метод - функция, ассоциированная с каким-то объектом
+     * т.е. любой метод является функцией, но не любая функция - методом */
+
+    /* если функцию public static double area(Square s) {return s.l * s.l;} перенести в ее класс, то она уже будет методом
+     * Пример: */
+    Square2Method n = new Square2Method(6);
+    System.out.println("Square 2 area " + n.d + " = " + n.area());
+
+    /* Java находит функцию, которая находится в классе, соответствующем этому объекту и вызывает эту функцию.
+    * А тот объект, в котором этот метод/функция вызывался, становится доступен через идентификатор this*/
+
+
   }
 
   public static void meow(String something) {
@@ -33,4 +48,7 @@ public class MyFirstProgram1 {
   public static double area(Rectangle m) {
     return m.a * m.b;
   }
+
 }
+
+
