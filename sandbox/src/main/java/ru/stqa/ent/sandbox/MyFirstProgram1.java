@@ -12,8 +12,9 @@ public class MyFirstProgram1 {
     Square s = new Square(7);
     System.out.println("Square area " + s.l + " = " + area(s));
     /* когда мы передавали не простое число double l = 5, а объект типа Square,
-    * мы создавали Square s = new Square(); и установили передаваемое значение атрибута s.l = 5
-    * и уже объект типа Square становился параметром функции area(s), а не атрибут длина стороны квадрата area(l)*/
+    * мы создавали Square s = new Square(); и установили передаваемое значение атрибута s.l = 7
+    * и уже объект типа Square становился параметром функции area(s), а не атрибут длина стороны квадрата area(l)
+    * Было Square s = new Square(); s.l (из класса) = 7 и area(s) */
 
 
     Rectangle m = new Rectangle(7, 4);
