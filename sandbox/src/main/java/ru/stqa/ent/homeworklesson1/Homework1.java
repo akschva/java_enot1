@@ -13,6 +13,9 @@ public class Homework1 {
 
 
   // Вариант 2 (метод в классе Point2)
+    Point2 p11 = new Point2(50, 20);
+    Point2 p22 = new Point2(40, 20);
+    System.out.println("Distance between other points " + p11.x +";" + p11.y + " and " + p22.x + ";" + p22.y + " = " + p11.distance(p11,p22));
 
   }
 
