@@ -12,3 +12,5 @@ public class Rectangle {
     * то есть значение m.a = значению параметра a (переданного)new Rectangle */
   }
 }
+
+
