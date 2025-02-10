@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac32dff3-fda3-4261-b456-b36390ff50ee" name="Changes" comment="" />
+    <list default="true" id="378d571e-a43a-4bc2-91e8-5c8356be7e45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/java_enot1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/homeworklesson1/Homework1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/homeworklesson1/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/homeworklesson1/Point2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/MyFirstProgram2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Rectangle2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Rectangle3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Rectangle4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Rectangle5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Square.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/Square2Method.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/MyFirstProgram1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/stqa/ent/sandbox/MyFirstProgram1.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,24 +78,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.sandbox [:ru.stqa.ent.homework.lesson1.Homework1.main()].executor": "Run",
-    "Gradle.sandbox [:ru.stqa.ent.homeworklesson1.Homework1.main()].executor": "Run",
-    "Gradle.sandbox [:ru.stqa.ent.sandbox.MyFirstProgram1.main()].executor": "Run",
-    "Gradle.sandbox [:ru.stqa.ent.sandbox.MyFirstProgram2.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "study",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/Admin/Documents/GitHub/java_enot1/sandbox/src/main/java/ru/stqa/ent",
-    "last_opened_file_path": "C:/Users/Admin/Documents/GitHub/java_enot1",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.sandbox [:ru.stqa.ent.homework.lesson1.Homework1.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.sandbox [:ru.stqa.ent.homeworklesson1.Homework1.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.sandbox [:ru.stqa.ent.sandbox.MyFirstProgram1.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.sandbox [:ru.stqa.ent.sandbox.MyFirstProgram2.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;study&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Admin/Documents/GitHub/java_enot1/sandbox/src/main/java/ru/stqa/ent&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/GitHub/java_enot1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.stqa.ent.sandbox" />
