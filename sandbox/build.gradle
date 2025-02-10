@@ -17,9 +17,6 @@ dependencies {
 }
 
 test {
-    useTestNG() { //Tells Gradle to use TestNG
-        useDefaultListeners = true // Tells TestNG to execute its default reporting structure
-        suites 'sandbox/src/test/java/ru/stqa/ent/sandbox' //location of our suite.xml
-    }
+    useTestNG()
 }
 
