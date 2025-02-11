@@ -19,7 +19,7 @@ public class PointTests {
     Point2 p2 = new Point2(20, 20);
     if (p1.distance(p2, p1) > 25) throw new AssertionError();
     else if (p1.distance(p2, p1) < 25) {
-      System.out.println("Distance betweeen p1 and p2" + " = " + p1.distance(p2, p1) +
+      System.out.println("Distance between p1 and p2" + " = " + p1.distance(p2, p1) +
               " which is lesser than 25"); }
   }
   @Test
