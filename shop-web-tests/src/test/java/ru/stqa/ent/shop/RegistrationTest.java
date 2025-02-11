@@ -30,7 +30,7 @@ public class RegistrationTest {
     driver.get("http://shop.bugred.ru/");
     driver.findElement(By.linkText("Регистрация")).click();
     driver.findElement(By.id("exampleInputName")).click();
-    driver.findElement(By.id("exampleInputName")).sendKeys("testuser99");
+    driver.findElement(By.id("exampleInputName")).sendKeys("testnastia22");
     driver.findElement(By.id("exampleInputEmail1")).click();
     driver.findElement(By.id("exampleInputEmail1")).sendKeys("example@mail.ru");
     driver.findElement(By.id("exampleInputPassword1")).click();
