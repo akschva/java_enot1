@@ -1,0 +1,22 @@
+
+plugins {
+    id 'application'
+    id 'java'
+}
+
+application {
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.testng', name: 'testng', version: '7.10.2'
+    implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: '2.1.0-alpha1'
+}
+
+test {
+    useTestNG()
+}
+
