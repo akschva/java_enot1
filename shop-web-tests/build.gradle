@@ -2,6 +2,8 @@
 plugins {
     id 'application'
     id 'java'
+    id 'eclipse'
+    id 'idea'
 }
 
 application {
@@ -12,14 +14,24 @@ repositories {
 }
 
 dependencies {
-    testImplementation group: 'org.testng', name: 'testng', version: '7.10.2'
     implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: '2.1.0-alpha1'
 
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.28.1'
     implementation group: 'org.webjars.npm', name: 'selenium-webdriver', version: '4.10.0'
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.12.0-RC2'
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.12.0-RC2'
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.12.0-RC2'
+    implementation group: 'org.junit.platform', name: 'junit-platform-suite', version: '1.12.0-RC2'
+    implementation group: 'org.eclipse.platform', name: 'org.eclipse.swt', version: '3.128.0'
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.12.0-RC2')
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.12.0-RC2')
 }
 
+
 test {
-    useTestNG()
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
