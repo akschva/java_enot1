@@ -10,8 +10,11 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 
 public class RegistrationTest {
@@ -27,6 +30,9 @@ public class RegistrationTest {
     driver = new ChromeDriver(options);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
+
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
   }
 
   @AfterEach
@@ -41,6 +47,12 @@ public class RegistrationTest {
    System.out.println("driver.get()");
 
     driver.manage().window().setSize(new Dimension(1265, 1380));
+
+    WebDriverWait wait = new WebDriverWait(driver, 30);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Регистрация")));
+// click on the compose button as soon as the "compose" button is visible
+    driver.findElement(By.linkText("Регистрация")).click();
+
     driver.findElement(By.linkText("Регистрация")).click();
     driver.findElement(By.id("exampleInputName")).click();
     driver.findElement(By.id("exampleInputName")).sendKeys("name1");
