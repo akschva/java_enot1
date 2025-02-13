@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 
 import java.util.*;
 
@@ -19,10 +21,14 @@ public class RegistrationTest {
 
   @BeforeEach
   public void setUp() {
-    driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
+    options.setAcceptInsecureCerts(true);
+
+    driver = new ChromeDriver(options);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
+
   @AfterEach
   public void tearDown() {
     driver.quit();
@@ -31,6 +37,8 @@ public class RegistrationTest {
   @Test
   public void registrationTest() {
     driver.get("http://shop.bugred.ru/");
+   System.out.println("driver.get()");
+   
     driver.manage().window().setSize(new Dimension(1265, 1380));
     driver.findElement(By.linkText("Регистрация")).click();
     driver.findElement(By.id("exampleInputName")).click();
@@ -45,3 +53,7 @@ public class RegistrationTest {
     driver.findElement(By.id("alertify-ok")).click();
   }
 }
+
+//*[@id="exampleInputName"]
+
+//*[@id="proceed-button"]
