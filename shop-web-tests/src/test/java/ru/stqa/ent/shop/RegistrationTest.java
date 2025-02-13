@@ -35,10 +35,11 @@ public class RegistrationTest {
   }
 
   @Test
-  public void registrationTest() {
+  public void registrationTest() throws InterruptedException {
     driver.get("http://shop.bugred.ru/");
+    Thread.sleep(1000);
    System.out.println("driver.get()");
-   
+
     driver.manage().window().setSize(new Dimension(1265, 1380));
     driver.findElement(By.linkText("Регистрация")).click();
     driver.findElement(By.id("exampleInputName")).click();
