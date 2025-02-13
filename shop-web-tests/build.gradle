@@ -11,19 +11,16 @@ repositories {
 
 dependencies {
     implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: '2.1.0-alpha1'
-    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '4.28.1'
-    implementation group: 'org.seleniumhq.webdriver', name: 'webdriver-selenium', version: '0.9.7376'
-    implementation(group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.12.0-RC2')
-    implementation(group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.12.0-RC2')
-    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.12.0-RC2')
-    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.12.0-RC2')
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testImplementation(group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '4.28.1')
     testImplementation(group: 'org.seleniumhq.webdriver', name: 'webdriver-selenium', version: '0.9.7376')
-    testImplementation('org.junit.jupiter:junit-jupiter-api')
-    testImplementation(group: 'org.mockito', name: 'mockito-junit-jupiter', version: '5.15.2')
+    implementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.12.0-RC2'
+    testImplementation(group: 'org.seleniumhq.selenium', name: 'selenium-devtools-v132', version: '4.28.1')
+
 }
 
-tasks.test {
+test {
     useJUnit()
     testLogging {
         events "passed", "skipped", "failed"
