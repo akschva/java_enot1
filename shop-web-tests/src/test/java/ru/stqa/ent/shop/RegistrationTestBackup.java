@@ -27,7 +27,7 @@ public class RegistrationTestBackup {
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
 
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
   }
 

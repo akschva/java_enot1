@@ -29,8 +29,6 @@ public class RegistrationTest {
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
 
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
   }
 
   @AfterEach
@@ -39,7 +37,7 @@ public class RegistrationTest {
   }
 
   @Test
-  public void registrationTest() throws InterruptedException {
+  public void testRegistration() throws InterruptedException {
     driver.get("https://demowebshop.tricentis.com/");
     Thread.sleep(1000);
 //    System.out.println("driver.get()");
