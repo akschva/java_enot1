@@ -22,32 +22,59 @@ public class AddToCartTest {
     vars = new HashMap<String, Object>();
 
     driver.get("https://demowebshop.tricentis.com/");
+    login("exampleemail11@mail.ru", "123098");
+    // login - это именно метод, а не ф-ция, потому что тестовый фреймворк сначала создает метод класса, выполняет метод
+    // setUp, внутри инициализируется атрибут driver, и когда в том же объекте вызывается login, то логин может пользоваться атрибутом
+  }
+
+  private void login(String email, String password) throws InterruptedException {
     driver.manage().window().setSize(new Dimension(1265, 1380));
     driver.findElement(By.linkText("Log in")).click();
-    driver.findElement(By.id("Email")).sendKeys("exampleemail11@mail.ru");
+    driver.findElement(By.id("Email")).sendKeys(email);
     driver.findElement(By.id("Password")).click();
-    driver.findElement(By.id("Password")).sendKeys("123098");
+    driver.findElement(By.id("Password")).sendKeys(password);
     driver.findElement(By.cssSelector(".login-button")).click();
     Thread.sleep(1000);
-
   }
 
   @After
   public void tearDown() {
     driver.quit();
   }
-  
+
   @Test
   public void testAddToCart() throws InterruptedException {
 
-    driver.findElement(By.cssSelector(".item-box:nth-child(2) .button-2")).click();
+    selectItemBox();
     Thread.sleep(1000);
-    driver.findElement(By.id("add-to-cart-button-2")).click();
-    driver.findElement(By.id("giftcard_2_RecipientName")).click();
-    driver.findElement(By.id("giftcard_2_RecipientName")).sendKeys("name1");
-    driver.findElement(By.id("giftcard_2_RecipientEmail")).click();
-    driver.findElement(By.id("giftcard_2_RecipientEmail")).sendKeys("name1@mail.ru");
-    driver.findElement(By.id("add-to-cart-button-2")).click();
+    clickAddToCard();
+    fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
+    clickAddToCard();
+    gotoCart();
+  }
+
+  // Для того чтобы не передавать в функцию миллион параметров, если форма большая, можно их объединить в один объект,
+  // который будет иметь много атрибутов (то есть вспомогательный класс, который описывает объекты типа "группа1" и туда пихать их атрибуты,
+  // второй для "группа2" и тд; но в метод будет передаваться один объект)
+
+  private void gotoCart() {
     driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
+  }
+
+  // метод принимает единственный параметр RecipientForm - это объект с двумя атрибутами; при вызове создается новый объект, атрибуты используются в методе recipientForm
+  private void fillRecipientForm(RecipientForm recipientForm) {
+    driver.findElement(By.id("giftcard_2_RecipientEmail")).click();
+    driver.findElement(By.id("giftcard_2_RecipientEmail")).sendKeys(recipientForm.getName());
+    driver.findElement(By.id("giftcard_2_RecipientName")).click();
+    driver.findElement(By.id("giftcard_2_RecipientName")).sendKeys(recipientForm.getEmail());
+  }
+
+
+  private void clickAddToCard() {
+    driver.findElement(By.id("add-to-cart-button-2")).click();
+  }
+
+  private void selectItemBox() {
+    driver.findElement(By.cssSelector(".item-box:nth-child(2) .button-2")).click();
   }
 }
