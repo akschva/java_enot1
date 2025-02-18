@@ -5,12 +5,12 @@ public class ZeroQuantityCartTest extends TestBase {
 
   @Test
   public void testZeroQuantityCart() {
-    app.gotoCart();
-    app.clickEditButton();
-    app.changeQuantity("2");
-    app.clickUpdateButton();
-    app.gotoCart();
-    app.chagneQuantity("0");
+    app.getNavigationHelper().gotoCart();
+    app.getClickHelper().clickEditButton();
+    app.getFieldRedactorHelper().changeQuantity("2");
+    app.getClickHelper().clickUpdateButton();
+    app.getNavigationHelper().gotoCart();
+    app.getFieldRedactorHelper().chagneQuantity("0");
   }
 
 }

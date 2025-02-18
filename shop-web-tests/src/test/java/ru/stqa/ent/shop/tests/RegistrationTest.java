@@ -20,12 +20,12 @@ public class RegistrationTest extends TestBase {
       Actions builder = new Actions(app.driver);
       builder.moveToElement(element).perform();
     }
-    app.clickRegistration();
-    app.chooseGender();
+    app.getNavigationHelper().clickRegistration();
+    app.getClickHelper().chooseGender();
     app.getEmailPasswordHelper().fillNameLastname("nastia121", "nastia211");
     app.getEmailPasswordHelper().fillEmail("exampleemail11@mail.ru");
     app.getEmailPasswordHelper().fillConfirmPassword("123098");
-    app.clickRegisterButton();
+    app.getNavigationHelper().submitRegistration();
   }
 
 }

@@ -7,12 +7,12 @@ public class AddToCartTest extends TestBase {
   @Test
   public void testAddToCart() throws InterruptedException {
 
-    app.selectItemBox();
+    app.getClickHelper().selectItemBox();
     Thread.sleep(1000);
-    app.clickAddToCard();
+    app.getClickHelper().clickAddToCard();
     app.getEmailPasswordHelper().fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
-    app.clickAddToCard();
-    app.gotoCart();
+    app.getClickHelper().clickAddToCard();
+    app.getNavigationHelper().gotoCart();
   }
 
   // Для того чтобы не передавать в функцию миллион параметров, если форма большая, можно их объединить в один объект,

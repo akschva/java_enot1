@@ -5,10 +5,10 @@ public class LoginTest extends TestBase {
 
   @Test
   public void testLogin() {
-    app.clickLogIn();
+    app.getNavigationHelper().clickLogin();
     app.getEmailPasswordHelper().fillEmailogin();
     app.getEmailPasswordHelper().fillPasswordlogin();
-    app.submitLogin();
+    app.getNavigationHelper().submitLogin();
   }
 
 }
