@@ -24,7 +24,7 @@ public class AddToCartTest {
     driver.get("https://demowebshop.tricentis.com/");
     login("exampleemail11@mail.ru", "123098");
     // login - это именно метод, а не ф-ция, потому что тестовый фреймворк сначала создает метод класса, выполняет метод
-    // setUp, внутри инициализируется атрибут driver, и когда в том же объекте вызывается login, то логин может пользоваться атрибутом
+    // setUp, внутри инициализируется переменная атрибут driver объекта setUp, и когда в том же объекте вызывается login, то логин может пользоваться атрибутом
   }
 
   private void login(String email, String password) throws InterruptedException {
