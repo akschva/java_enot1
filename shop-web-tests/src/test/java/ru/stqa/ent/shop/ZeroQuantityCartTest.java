@@ -19,23 +19,44 @@ public class ZeroQuantityCartTest {
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
+    driver.get("https://demowebshop.tricentis.com/cart");
+    driver.manage().window().setSize(new Dimension(1265, 1380));
   }
   @After
   public void tearDown() {
     driver.quit();
   }
+
   @Test
   public void testZeroQuantityCart() {
-    driver.get("https://demowebshop.tricentis.com/cart");
-    driver.manage().window().setSize(new Dimension(1265, 1380));
-    driver.findElement(By.name("removefromcart")).click();
-    driver.findElement(By.linkText("Edit")).click();
-    driver.findElement(By.id("addtocart_2_EnteredQuantity")).click();
-    driver.findElement(By.id("addtocart_2_EnteredQuantity")).sendKeys("2");
-    driver.findElement(By.id("add-to-cart-button-2")).click();
-    driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
+
+    clickEditButton();
+    changeQuantity("2");
+    clickUpdateButton();
+    gotoCart();
+    chagneQuantity("0");
+  }
+
+  private void chagneQuantity(String quantity) {
     driver.findElement(By.cssSelector(".cart-item-row")).click();
-    driver.findElement(By.name("itemquantity5054028")).sendKeys("0");
+    driver.findElement(By.name("itemquantity5054028")).sendKeys(quantity);
     driver.findElement(By.name("itemquantity5054028")).sendKeys(Keys.ENTER);
+  }
+
+  private void gotoCart() {
+    driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
+  }
+
+  private void clickUpdateButton() {
+    driver.findElement(By.id("add-to-cart-button-2")).click();
+  }
+
+  private void changeQuantity(String quantity) {
+    driver.findElement(By.id("addtocart_2_EnteredQuantity")).click();
+    driver.findElement(By.id("addtocart_2_EnteredQuantity")).sendKeys(quantity);
+  }
+
+  private void clickEditButton() {
+    driver.findElement(By.linkText("Edit")).click();
   }
 }

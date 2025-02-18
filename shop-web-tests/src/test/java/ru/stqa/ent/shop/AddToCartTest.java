@@ -23,12 +23,13 @@ public class AddToCartTest {
 
     driver.get("https://demowebshop.tricentis.com/");
     login("exampleemail11@mail.ru", "123098");
+    driver.manage().window().setSize(new Dimension(1265, 1380));
     // login - это именно метод, а не ф-ция, потому что тестовый фреймворк сначала создает метод класса, выполняет метод
     // setUp, внутри инициализируется переменная атрибут driver объекта setUp, и когда в том же объекте вызывается login, то логин может пользоваться атрибутом
   }
 
   private void login(String email, String password) throws InterruptedException {
-    driver.manage().window().setSize(new Dimension(1265, 1380));
+
     driver.findElement(By.linkText("Log in")).click();
     driver.findElement(By.id("Email")).sendKeys(email);
     driver.findElement(By.id("Password")).click();
