@@ -10,7 +10,7 @@ public class AddToCartTest extends TestBase {
     app.selectItemBox();
     Thread.sleep(1000);
     app.clickAddToCard();
-    app.fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
+    app.getEmailPasswordHelper().fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
     app.clickAddToCard();
     app.gotoCart();
   }

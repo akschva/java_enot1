@@ -16,15 +16,15 @@ public class RegistrationTest extends TestBase {
 //    wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Регистрация")));
 // click on the compose button as soon as the "compose" button is visible
     {
-      WebElement element = app.driver.findElement(By.cssSelector("li:nth-child(4) > .ico-wishlist"));
-      Actions builder = new Actions(app.driver);
+      WebElement element = app.getEmailPasswordHelper().driver.findElement(By.cssSelector("li:nth-child(4) > .ico-wishlist"));
+      Actions builder = new Actions(app.getEmailPasswordHelper().driver);
       builder.moveToElement(element).perform();
     }
     app.clickRegistration();
     app.chooseGender();
-    app.fillNameLastname("nastia121", "nastia211");
-    app.fillEmail("exampleemail11@mail.ru");
-    app.fillConfirmPassword("123098");
+    app.getEmailPasswordHelper().fillNameLastname("nastia121", "nastia211");
+    app.getEmailPasswordHelper().fillEmail("exampleemail11@mail.ru");
+    app.getEmailPasswordHelper().fillConfirmPassword("123098");
     app.clickRegisterButton();
   }
 

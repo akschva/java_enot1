@@ -6,8 +6,8 @@ public class LoginTest extends TestBase {
   @Test
   public void testLogin() {
     app.clickLogIn();
-    app.fillEmailogin();
-    app.fillPasswordlogin();
+    app.getEmailPasswordHelper().fillEmailogin();
+    app.getEmailPasswordHelper().fillPasswordlogin();
     app.submitLogin();
   }
 
