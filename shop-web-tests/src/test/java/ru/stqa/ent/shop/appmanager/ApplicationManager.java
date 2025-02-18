@@ -12,7 +12,7 @@ import java.util.Map;
 public class ApplicationManager {
   public WebDriver driver;
 
-  private EmailPasswordHelper emailPasswordHelper;
+  public EmailPasswordHelper emailPasswordHelper;
   public Map<String, Object> vars;
   JavascriptExecutor js;
 
@@ -32,60 +32,60 @@ public class ApplicationManager {
   }
 
   public void stop() {
-    emailPasswordHelper.driver.quit();
+    driver.quit();
   }
 
   public void chagneQuantity(String quantity) {
-    emailPasswordHelper.driver.findElement(By.cssSelector(".cart-item-row")).click();
-    emailPasswordHelper.driver.findElement(By.name("itemquantity5054028")).sendKeys(quantity);
-    emailPasswordHelper.driver.findElement(By.name("itemquantity5054028")).sendKeys(Keys.ENTER);
+    driver.findElement(By.cssSelector(".cart-item-row")).click();
+    driver.findElement(By.name("itemquantity5054028")).sendKeys(quantity);
+    driver.findElement(By.name("itemquantity5054028")).sendKeys(Keys.ENTER);
   }
 
   public void gotoCart() {
-    emailPasswordHelper.driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
+    driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
   }
 
   public void clickAddToCard() {
-    emailPasswordHelper.driver.findElement(By.id("add-to-cart-button-2")).click();
+    driver.findElement(By.id("add-to-cart-button-2")).click();
   }
 
   public void selectItemBox() {
-    emailPasswordHelper.driver.findElement(By.cssSelector(".item-box:nth-child(2) .button-2")).click();
+    driver.findElement(By.cssSelector(".item-box:nth-child(2) .button-2")).click();
   }
 
   public void clickRegisterButton() {
-    emailPasswordHelper.driver.findElement(By.id("register-button")).click();
-    emailPasswordHelper.driver.findElement(By.cssSelector(".register-continue-button")).click();
+    driver.findElement(By.id("register-button")).click();
+    driver.findElement(By.cssSelector(".register-continue-button")).click();
   }
 
   public void chooseGender() {
-    emailPasswordHelper.driver.findElement(By.id("gender-female")).click();
+    driver.findElement(By.id("gender-female")).click();
   }
 
   public void clickRegistration() {
-    emailPasswordHelper.driver.findElement(By.linkText("Register")).click();
+   driver.findElement(By.linkText("Register")).click();
   }
 
   public void clickUpdateButton() {
-    emailPasswordHelper.driver.findElement(By.id("add-to-cart-button-2")).click();
+    driver.findElement(By.id("add-to-cart-button-2")).click();
   }
 
   public void changeQuantity(String quantity) {
-    emailPasswordHelper.driver.findElement(By.id("addtocart_2_EnteredQuantity")).click();
-    emailPasswordHelper.driver.findElement(By.id("addtocart_2_EnteredQuantity")).sendKeys(quantity);
+    driver.findElement(By.id("addtocart_2_EnteredQuantity")).click();
+    driver.findElement(By.id("addtocart_2_EnteredQuantity")).sendKeys(quantity);
   }
 
   public void clickEditButton() {
-    emailPasswordHelper.driver.findElement(By.linkText("Edit")).click();
+    driver.findElement(By.linkText("Edit")).click();
   }
 
   public void submitLogin() {
-    emailPasswordHelper.driver.findElement(By.cssSelector("label:nth-child(3)")).click();
-    emailPasswordHelper.driver.findElement(By.cssSelector(".login-button")).click();
+    driver.findElement(By.cssSelector("label:nth-child(3)")).click();
+    driver.findElement(By.cssSelector(".login-button")).click();
   }
 
   public void clickLogIn() {
-    emailPasswordHelper.driver.findElement(By.linkText("Log in")).click();
+    driver.findElement(By.linkText("Log in")).click();
   }
 
   public EmailPasswordHelper getEmailPasswordHelper() {

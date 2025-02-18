@@ -16,8 +16,8 @@ public class RegistrationTest extends TestBase {
 //    wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Регистрация")));
 // click on the compose button as soon as the "compose" button is visible
     {
-      WebElement element = app.getEmailPasswordHelper().driver.findElement(By.cssSelector("li:nth-child(4) > .ico-wishlist"));
-      Actions builder = new Actions(app.getEmailPasswordHelper().driver);
+      WebElement element = app.driver.findElement(By.cssSelector("li:nth-child(4) > .ico-wishlist"));
+      Actions builder = new Actions(app.driver);
       builder.moveToElement(element).perform();
     }
     app.clickRegistration();

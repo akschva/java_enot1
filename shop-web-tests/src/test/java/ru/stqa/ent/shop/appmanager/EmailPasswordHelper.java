@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 import ru.stqa.ent.shop.model.RecipientForm;
 
 public class EmailPasswordHelper {
-  public WebDriver driver;
+  private WebDriver driver;
+// в этом атрибуте помощник хранит свою личную ссылку на драйвер
 
   public EmailPasswordHelper(WebDriver driver) {
     this.driver = driver;
