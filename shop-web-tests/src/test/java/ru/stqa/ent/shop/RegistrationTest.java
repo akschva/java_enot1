@@ -7,12 +7,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 
 public class RegistrationTest {
@@ -52,19 +48,43 @@ public class RegistrationTest {
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    driver.findElement(By.linkText("Register")).click();
-    driver.findElement(By.id("gender-female")).click();
-    driver.findElement(By.id("FirstName")).click();
-    driver.findElement(By.id("FirstName")).sendKeys("nastia121");
-    driver.findElement(By.id("LastName")).click();
-    driver.findElement(By.id("LastName")).sendKeys("nastia211");
-    driver.findElement(By.id("Email")).click();
-    driver.findElement(By.id("Email")).sendKeys("exampleemail11@mail.ru");
-    driver.findElement(By.id("Password")).click();
-    driver.findElement(By.id("Password")).sendKeys("123098");
-    driver.findElement(By.id("ConfirmPassword")).click();
-    driver.findElement(By.id("ConfirmPassword")).sendKeys("123098");
+    clickRegistration();
+    chooseGender();
+    fillNameLastname("nastia121", "nastia211");
+    fillEmail("exampleemail11@mail.ru");
+    fillConfirmPassword("123098");
+    clickRegisterButton();
+  }
+
+  private void clickRegisterButton() {
     driver.findElement(By.id("register-button")).click();
     driver.findElement(By.cssSelector(".register-continue-button")).click();
+  }
+
+  private void fillConfirmPassword(String password) {
+    driver.findElement(By.id("Password")).click();
+    driver.findElement(By.id("Password")).sendKeys(password);
+    driver.findElement(By.id("ConfirmPassword")).click();
+    driver.findElement(By.id("ConfirmPassword")).sendKeys(password);
+  }
+
+  private void fillEmail(String email) {
+    driver.findElement(By.id("Email")).click();
+    driver.findElement(By.id("Email")).sendKeys(email);
+  }
+
+  private void fillNameLastname(String firstname, String lastname) {
+    driver.findElement(By.id("FirstName")).click();
+    driver.findElement(By.id("FirstName")).sendKeys(firstname);
+    driver.findElement(By.id("LastName")).click();
+    driver.findElement(By.id("LastName")).sendKeys(lastname);
+  }
+
+  private void chooseGender() {
+    driver.findElement(By.id("gender-female")).click();
+  }
+
+  private void clickRegistration() {
+    driver.findElement(By.linkText("Register")).click();
   }
 }
