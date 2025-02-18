@@ -3,32 +3,31 @@ package ru.stqa.ent.shop.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class NavigationHelper {
-  private WebDriver driver;
+public class NavigationHelper extends HelperBase {
 
   public NavigationHelper(WebDriver driver) {
-    this.driver = driver;
+    super(driver);
   }
 
   public void gotoCart() {
-    driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
+    click(By.cssSelector(".ico-cart > .cart-label"));
   }
 
   public void submitRegistration() {
-    driver.findElement(By.id("register-button")).click();
-    driver.findElement(By.cssSelector(".register-continue-button")).click();
+    click(By.id("register-button"));
+    click(By.cssSelector(".register-continue-button"));
   }
 
   public void clickRegistration() {
-   driver.findElement(By.linkText("Register")).click();
+    click(By.linkText("Register"));
   }
 
   public void submitLogin() {
-    driver.findElement(By.cssSelector("label:nth-child(3)")).click();
-    driver.findElement(By.cssSelector(".login-button")).click();
+    click(By.cssSelector("label:nth-child(3)"));
+    click(By.cssSelector(".login-button"));
   }
 
   public void clickLogin() {
-    driver.findElement(By.linkText("Log in")).click();
+    click(By.linkText("Log in"));
   }
 }

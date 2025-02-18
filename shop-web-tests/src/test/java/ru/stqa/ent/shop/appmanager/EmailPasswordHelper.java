@@ -3,60 +3,50 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.ent.shop.model.RecipientForm;
 
-public class EmailPasswordHelper {
-  private WebDriver driver;
-// в этом атрибуте помощник хранит свою личную ссылку на драйвер
+public class EmailPasswordHelper extends HelperBase {
+  // в этом атрибуте помощник хранил бы свою личную ссылку на драйвер
 
   public EmailPasswordHelper(WebDriver driver) {
-    this.driver = driver;
+    super(driver);
   // Конструктор, в котором значение переданного параметра (driver) присвоено в поле класса EmailPasswordHelper.
   // Он получит доступ к драйверу, который инициализирован в менеджере и передан помощнику
+  //super - обращение к конструктору базового класса, ссылка на драйвер наследуется оттуда
   }
 
   public void login(String email, String password) throws InterruptedException {
 
-    driver.findElement(By.linkText("Log in")).click();
+    click(By.linkText("Log in"));
     driver.findElement(By.id("Email")).sendKeys(email);
-    driver.findElement(By.id("Password")).click();
-    driver.findElement(By.id("Password")).sendKeys(password);
-    driver.findElement(By.cssSelector(".login-button")).click();
+    type(By.id("Password"), password);
+    click(By.cssSelector(".login-button"));
     Thread.sleep(1000);
   }
 
   // метод принимает единственный параметр RecipientForm - это объект с двумя атрибутами; при вызове создается новый объект, атрибуты используются в методе recipientForm
   public void fillRecipientForm(RecipientForm recipientForm) {
-    driver.findElement(By.id("giftcard_2_RecipientEmail")).click();
-    driver.findElement(By.id("giftcard_2_RecipientEmail")).sendKeys(recipientForm.getName());
-    driver.findElement(By.id("giftcard_2_RecipientName")).click();
-    driver.findElement(By.id("giftcard_2_RecipientName")).sendKeys(recipientForm.getEmail());
+    type(By.id("giftcard_2_RecipientEmail"), recipientForm.getName());
+    type(By.id("giftcard_2_RecipientName"), recipientForm.getEmail());
   }
 
   public void fillConfirmPassword(String password) {
-    driver.findElement(By.id("Password")).click();
-    driver.findElement(By.id("Password")).sendKeys(password);
-    driver.findElement(By.id("ConfirmPassword")).click();
-    driver.findElement(By.id("ConfirmPassword")).sendKeys(password);
+    type(By.id("Password"), password);
+    type(By.id("ConfirmPassword"), password);
   }
 
   public void fillEmail(String email) {
-    driver.findElement(By.id("Email")).click();
-    driver.findElement(By.id("Email")).sendKeys(email);
+    type(By.id("Email"), email);
   }
 
   public void fillNameLastname(String firstname, String lastname) {
-    driver.findElement(By.id("FirstName")).click();
-    driver.findElement(By.id("FirstName")).sendKeys(firstname);
-    driver.findElement(By.id("LastName")).click();
-    driver.findElement(By.id("LastName")).sendKeys(lastname);
+    type(By.id("FirstName"), firstname);
+    type(By.id("LastName"), lastname);
   }
 
   public void fillPasswordlogin() {
-    driver.findElement(By.id("Password")).click();
-    driver.findElement(By.id("Password")).sendKeys("123098");
+    type(By.id("Password"), "123098");
   }
 
   public void fillEmailogin() {
-    driver.findElement(By.id("Email")).click();
-    driver.findElement(By.id("Email")).sendKeys("exampleemail11@mail.ru");
+    type(By.id("Email"), "exampleemail11@mail.ru");
   }
 }

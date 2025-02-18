@@ -3,30 +3,29 @@ package ru.stqa.ent.shop.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ClickHelper {
-  private WebDriver driver;
+public class ClickHelper extends HelperBase {
 
   public ClickHelper(WebDriver driver) {
-    this.driver = driver;
+    super(driver);
   }
 
   public void clickAddToCard() {
-    driver.findElement(By.id("add-to-cart-button-2")).click();
+    click(By.id("add-to-cart-button-2"));
   }
 
   public void selectItemBox() {
-    driver.findElement(By.cssSelector(".item-box:nth-child(2) .button-2")).click();
+    click(By.cssSelector(".item-box:nth-child(2) .button-2"));
   }
 
   public void clickUpdateButton() {
-    driver.findElement(By.id("add-to-cart-button-2")).click();
+    click(By.id("add-to-cart-button-2"));
   }
 
   public void chooseGender() {
-    driver.findElement(By.id("gender-female")).click();
+    click(By.id("gender-female"));
   }
 
   public void clickEditButton() {
-    driver.findElement(By.linkText("Edit")).click();
+    click(By.linkText("Edit"));
   }
 }
