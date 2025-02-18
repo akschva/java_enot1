@@ -2,10 +2,7 @@ package ru.stqa.ent.shop;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -46,6 +43,12 @@ public class TestBase {
   @After
   public void tearDown() {
     driver.quit();
+  }
+
+  public void chagneQuantity(String quantity) {
+    driver.findElement(By.cssSelector(".cart-item-row")).click();
+    driver.findElement(By.name("itemquantity5054028")).sendKeys(quantity);
+    driver.findElement(By.name("itemquantity5054028")).sendKeys(Keys.ENTER);
   }
 
   public void gotoCart() {
@@ -98,5 +101,37 @@ public class TestBase {
 
   public void clickRegistration() {
     driver.findElement(By.linkText("Register")).click();
+  }
+
+  protected void clickUpdateButton() {
+    driver.findElement(By.id("add-to-cart-button-2")).click();
+  }
+
+  protected void changeQuantity(String quantity) {
+    driver.findElement(By.id("addtocart_2_EnteredQuantity")).click();
+    driver.findElement(By.id("addtocart_2_EnteredQuantity")).sendKeys(quantity);
+  }
+
+  protected void clickEditButton() {
+    driver.findElement(By.linkText("Edit")).click();
+  }
+
+  protected void submitLogin() {
+    driver.findElement(By.cssSelector("label:nth-child(3)")).click();
+    driver.findElement(By.cssSelector(".login-button")).click();
+  }
+
+  protected void fillPasswordlogin() {
+    driver.findElement(By.id("Password")).click();
+    driver.findElement(By.id("Password")).sendKeys("123098");
+  }
+
+  protected void fillEmailogin() {
+    driver.findElement(By.id("Email")).click();
+    driver.findElement(By.id("Email")).sendKeys("exampleemail11@mail.ru");
+  }
+
+  protected void clickLogIn() {
+    driver.findElement(By.linkText("Log in")).click();
   }
 }
