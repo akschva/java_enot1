@@ -13,8 +13,8 @@ public class ClickHelper extends HelperBase {
     click(By.id("add-to-cart-button-2"));
   }
 
-  public void selectItemBox() {
-    click(By.cssSelector(".item-box:nth-child(2) .button-2"));
+  public void selectItemBox(String selector) {
+    click(By.cssSelector(selector));
   }
 
   public void clickUpdateButton() {
