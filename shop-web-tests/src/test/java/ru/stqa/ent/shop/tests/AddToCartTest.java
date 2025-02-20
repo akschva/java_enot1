@@ -7,7 +7,7 @@ public class AddToCartTest extends TestBase {
   @Test
   public void testAddToCart() throws InterruptedException {
 
-    app.getClickHelper().selectItemBox();
+    app.getClickHelper().selectItemBox(".item-box:nth-child(2) .button-2");
     Thread.sleep(1000);
     app.getClickHelper().clickAddToCard();
     app.getEmailPasswordHelper().fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
