@@ -2,6 +2,7 @@ package ru.stqa.ent.shop.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HelperBase {
   protected WebDriver driver;
@@ -10,12 +11,13 @@ public class HelperBase {
     this.driver = driver;
   }
 
-  protected void type(By locator, String text) {
+  public void type(By locator, String text) {
     click(locator);
     driver.findElement(locator).sendKeys(text);
   }
 
-  protected void click(By locator) {
+  public void click(By locator) {
     driver.findElement(locator).click();
   }
+
 }

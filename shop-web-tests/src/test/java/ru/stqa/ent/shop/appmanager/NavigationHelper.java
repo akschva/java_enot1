@@ -2,6 +2,7 @@ package ru.stqa.ent.shop.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class NavigationHelper extends HelperBase {
 
@@ -30,4 +31,10 @@ public class NavigationHelper extends HelperBase {
   public void clickLogin() {
     click(By.linkText("Log in"));
   }
+
+  public WebElement getWebElementDropdown(String id) {
+    WebElement dropdown = driver.findElement(By.id(id));
+    return dropdown;
+  }
+
 }

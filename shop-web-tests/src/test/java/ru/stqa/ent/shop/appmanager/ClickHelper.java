@@ -27,5 +27,11 @@ public class ClickHelper extends HelperBase {
 
   public void clickEditButton() {
     click(By.linkText("Edit"));
+    }
+
+  public void clickDropdown(String expression) {
+    click(By.xpath(expression));
   }
-}
+
+  }
+
