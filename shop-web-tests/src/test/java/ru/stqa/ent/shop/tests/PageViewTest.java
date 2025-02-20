@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 public class PageViewTest extends TestBase {
 
   @Test
-  public void pageView() {
+  public void pageView() throws InterruptedException {
 
     app.getClickHelper().click(By.linkText("Gift Cards"));
     app.getClickHelper().click(By.id("products-viewmode"));
@@ -26,28 +26,28 @@ public class PageViewTest extends TestBase {
     app.getClickHelper().click(By.id("products-orderby"));
 
     {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown(String.valueOf(By.id("products-orderby")));
+      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
       app.getClickHelper().clickDropdown("//option[. = 'Created on']");
     }
 
     app.getClickHelper().click(By.id("products-orderby"));
 
     {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown(String.valueOf(By.id("products-orderby")));
+      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
       app.getClickHelper().clickDropdown("//option[. = 'Position']");
     }
 
     app.getClickHelper().click(By.id("products-orderby"));
 
     {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown(String.valueOf(By.id("products-orderby")));
+      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
       app.getClickHelper().clickDropdown("//option[. = 'Name: Z to A']");
     }
 
     app.getClickHelper().click(By.id("products-viewmode"));
 
     {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown(String.valueOf(By.id("products-viewmode")));
+      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
       app.getClickHelper().clickDropdown("//option[. = 'Grid']");
     }
   }
