@@ -26,7 +26,7 @@ public class HelperBase {
     driver.findElement(locator).click();
   }
 
-  // проверка на возникновение диалогового окна
+  // проверка на отсутствие диалогового окна
   public boolean isAlertPresent() {
     try {
       driver.switchTo().alert();
