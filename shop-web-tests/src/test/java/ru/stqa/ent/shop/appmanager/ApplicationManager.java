@@ -3,6 +3,7 @@ package ru.stqa.ent.shop.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +23,28 @@ public class ApplicationManager {
 
 
   public void init() throws InterruptedException {
-    ChromeOptions options = new ChromeOptions();
-    options.setAcceptInsecureCerts(true);
-    driver = new ChromeDriver();
+    String browser = "firefox";
+//Checking for 'firefox' parameters
+      if(browser.equalsIgnoreCase("firefox")){
+//creating firefox instance
+        driver = new FirefoxDriver();
+      }
+//Checking for 'chrome' parameters
+      else if(browser.equalsIgnoreCase("chrome")){
+//Creating chrome instance
+        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setAcceptInsecureCerts(true);
+      }
+      else{
+//If the browser is not passed then throw the below exception
+        try {
+          throw new Exception("Invalid browser");
+        } catch (Exception e) {
+          throw new RuntimeException(e);
+        }
+      }
+
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
 
