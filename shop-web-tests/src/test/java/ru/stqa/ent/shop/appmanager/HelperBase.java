@@ -1,6 +1,7 @@
 package ru.stqa.ent.shop.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -23,6 +24,17 @@ public class HelperBase {
 
   public void click(By locator) {
     driver.findElement(locator).click();
+  }
+
+  // проверка на возникновение диалогового окна
+  public boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    }
+    catch (NoAlertPresentException e) {
+      return false;
+    }
   }
 
 }
