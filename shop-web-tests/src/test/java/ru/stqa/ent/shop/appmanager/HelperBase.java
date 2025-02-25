@@ -31,8 +31,7 @@ public class HelperBase {
     try {
       driver.switchTo().alert();
       return true;
-    }
-    catch (NoAlertPresentException e) {
+    } catch (NoAlertPresentException e) {
       return false;
     }
   }
