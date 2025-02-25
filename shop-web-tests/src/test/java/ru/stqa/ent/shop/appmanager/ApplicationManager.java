@@ -23,10 +23,11 @@ public class ApplicationManager {
 
 
   public void init() throws InterruptedException {
-    String browser = "firefox";
+    String browser = "chrome";
 //Checking for 'firefox' parameters
       if(browser.equalsIgnoreCase("firefox")){
 //creating firefox instance
+       System.setProperty("webdriver.firefox.bin","C:\\Program Files\\Mozilla Firefox\\firefox.exe");
         driver = new FirefoxDriver();
       }
 //Checking for 'chrome' parameters
