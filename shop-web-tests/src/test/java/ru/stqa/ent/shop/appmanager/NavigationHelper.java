@@ -11,6 +11,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void gotoCart() {
+    if (isElementPresent(By.cssSelector(".ico-cart > .cart-label")))
     click(By.cssSelector(".ico-cart > .cart-label"));
   }
 
