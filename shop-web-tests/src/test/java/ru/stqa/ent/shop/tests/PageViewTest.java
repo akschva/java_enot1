@@ -11,45 +11,62 @@ public class PageViewTest extends TestBase {
     app.getClickHelper().click(By.linkText("Gift Cards"));
     app.getClickHelper().click(By.id("products-viewmode"));
 
+
+
     {
       WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-viewmode");
       app.getClickHelper().clickDropdown("//option[. = 'List']");
     }
 
-    app.getClickHelper().click(By.id("products-orderby"));
+    app.getClickHelper().selectList("Price: Low to High");
+    Thread.sleep(1000);
+    app.getClickHelper().selectList("Created on");
+    Thread.sleep(1000);
+    app.getClickHelper().selectList("Position");
+    Thread.sleep(1000);
+    app.getClickHelper().selectList("Name: Z to A");
+    Thread.sleep(1000);
+    app.getClickHelper().selectList("Name: A to Z");
+    Thread.sleep(1000);
+    app.getClickHelper().selectList("Price: High to Low");
+    Thread.sleep(1000);
 
-    {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
-      app.getClickHelper().clickDropdown("//option[. = 'Price: Low to High']");
-    }
 
-    app.getClickHelper().click(By.id("products-orderby"));
 
-    {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
-      app.getClickHelper().clickDropdown("//option[. = 'Created on']");
-    }
-
-    app.getClickHelper().click(By.id("products-orderby"));
-
-    {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
-      app.getClickHelper().clickDropdown("//option[. = 'Position']");
-    }
-
-    app.getClickHelper().click(By.id("products-orderby"));
-
-    {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
-      app.getClickHelper().clickDropdown("//option[. = 'Name: Z to A']");
-    }
-
-    app.getClickHelper().click(By.id("products-viewmode"));
-
-    {
-      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
-      app.getClickHelper().clickDropdown("//option[. = 'Grid']");
-    }
+//    app.getClickHelper().click(By.id("products-orderby"));
+//
+//    {
+//      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
+//      app.getClickHelper().clickDropdown("//option[. = 'Price: Low to High']");
+//    }
+//
+//    app.getClickHelper().click(By.id("products-orderby"));
+//
+//    {
+//      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
+//      app.getClickHelper().clickDropdown("//option[. = 'Created on']");
+//    }
+//
+//    app.getClickHelper().click(By.id("products-orderby"));
+//
+//    {
+//      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
+//      app.getClickHelper().clickDropdown("//option[. = 'Position']");
+//    }
+//
+//    app.getClickHelper().click(By.id("products-orderby"));
+//
+//    {
+//      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
+//      app.getClickHelper().clickDropdown("//option[. = 'Name: Z to A']");
+//    }
+//
+//    app.getClickHelper().click(By.id("products-viewmode"));
+//
+//    {
+//      WebElement dropdown = app.getNavigationHelper().getWebElementDropdown("products-orderby");
+//      app.getClickHelper().clickDropdown("//option[. = 'Grid']");
+//    }
   }
 
 
