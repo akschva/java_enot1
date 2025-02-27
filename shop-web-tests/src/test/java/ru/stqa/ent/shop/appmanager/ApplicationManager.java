@@ -17,6 +17,7 @@ public class ApplicationManager {
   private ClickHelper clickHelper;
   private NavigationHelper navigationHelper; // инициализация перенесена в метод init после создания драйвера
   private EmailPasswordHelper emailPasswordHelper; // emailPasswordHelper сгенерированный вспомогательный метод, дающий доступ к этому полю
+  private CartHelper cartHelper;
   public Map<String, Object> vars;
   JavascriptExecutor js;
 
@@ -55,6 +56,7 @@ public class ApplicationManager {
     emailPasswordHelper.login("exampleemail11@mail.ru", "123098");
     clickHelper = new ClickHelper(driver);
     fieldRedactorHelper = new FieldRedactorHelper(driver);
+    cartHelper = new CartHelper(driver);
     driver.manage().window().setSize(new Dimension(1265, 1380));
     // login - это именно метод, а не ф-ция, потому что тестовый фреймворк сначала создает метод класса, выполняет метод
     // setUp, внутри инициализируется переменная атрибут driver объекта setUp, и когда в том же объекте вызывается login, то логин может пользоваться атрибутом
@@ -83,5 +85,9 @@ public class ApplicationManager {
 
   public FieldRedactorHelper getFieldRedactorHelper() {
     return fieldRedactorHelper;
+  }
+
+  public CartHelper getCartHelper() {
+    return cartHelper;
   }
 }

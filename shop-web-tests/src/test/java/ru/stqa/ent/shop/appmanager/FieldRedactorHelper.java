@@ -10,14 +10,17 @@ public class FieldRedactorHelper extends HelperBase{
     super(driver);
   }
 
-  public void chagneQuantity(String quantity) {
-    type(By.cssSelector(".cart-item-row"), quantity);
-    driver.findElement(By.name("itemquantity5054028")).sendKeys(Keys.ENTER);
-  }
+//  public void changeQuantityinCart(String quantity) throws InterruptedException {
+//    Thread.sleep(2000);
+//    type(By.cssSelector(".cart-item-row"), quantity);
+//    driver.findElement(By.className("qty-input.valid")).sendKeys(Keys.ENTER);
+//  }
 
   public void changeQuantity(String quantity) {
-    type(By.id("addtocart_2_EnteredQuantity"), quantity);
-  }
+    type(By.className("qty-input"), quantity);
+ }
+
+
 
 }
 

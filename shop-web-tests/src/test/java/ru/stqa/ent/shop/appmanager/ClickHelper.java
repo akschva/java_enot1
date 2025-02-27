@@ -11,7 +11,7 @@ public class ClickHelper extends HelperBase {
   }
 
   public void clickAddToCard() {
-    click(By.id("add-to-cart-button-2"));
+    click(By.cssSelector("[id*='add-to-cart-button-']"));
   }
 
   public void selectItemBox(String selector) {
@@ -19,7 +19,7 @@ public class ClickHelper extends HelperBase {
   }
 
   public void clickUpdateButton() {
-    click(By.id("add-to-cart-button-2"));
+    click(By.cssSelector("[id*='add-to-cart-button-']"));
   }
 
   public void chooseGender() {
@@ -27,8 +27,12 @@ public class ClickHelper extends HelperBase {
   }
 
   public void clickEditButton() {
-    click(By.linkText("Edit"));
-    }
+    click(By.linkText("Edit")); }
+
+  public boolean isThereEditButton() {
+    return isElementPresent(By.linkText("Edit"));
+  }
+
 
   public void clickDropdown(String expression) {
     click(By.xpath(expression));
