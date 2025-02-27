@@ -18,7 +18,7 @@ public class HelperBase {
         driver.findElement(locator).sendKeys(text);
       }
     }
-  
+
 
   public void click(By locator) {
     driver.findElement(locator).click();
