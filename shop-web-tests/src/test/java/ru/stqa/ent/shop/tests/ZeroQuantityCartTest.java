@@ -14,10 +14,10 @@ public class ZeroQuantityCartTest extends TestBase {
       app.getClickHelper().click(By.className("product-name")); }
     else {
       app.getClickHelper().clickEditButton(); }
-    app.getFieldRedactorHelper().changeQuantity("2");
+    app.getFieldRedactorHelper().changeQuantity("3");
     app.getClickHelper().clickUpdateButton();
     app.getNavigationHelper().gotoCart();
-    app.getFieldRedactorHelper().changeQuantity("0");
+    app.getFieldRedactorHelper().changeQuantity("1");
   }
 
 }
