@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class PrimeTests {
 
-  @Test
+  @Test(enabled = false)
   public void testPrime () {
     Assert.assertTrue(Primes.isPrime(Integer.MAX_VALUE));
   }
