@@ -24,8 +24,8 @@ public class EmailPasswordHelper extends HelperBase {
 
   // метод принимает единственный параметр RecipientForm - это объект с двумя атрибутами; при вызове создается новый объект, атрибуты используются в методе recipientForm
   public void fillRecipientForm(RecipientForm recipientForm) {
-    type(By.id("giftcard_2_RecipientEmail"), recipientForm.getName());
-    type(By.id("giftcard_2_RecipientName"), recipientForm.getEmail());
+    type(By.id("giftcard_2_RecipientEmail"), recipientForm.getEmail());
+    type(By.id("giftcard_2_RecipientName"), recipientForm.getName());
   }
 
   public void fillConfirmPassword(String password) {
