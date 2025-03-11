@@ -26,4 +26,8 @@ public class CartHelper extends HelperBase {
   public int getCartCount() {
     return driver.findElements(By.className("product-name")).size();
   }
+  
+  public boolean isThereAnElement(String className) {
+    return isElementPresent(By.className(className));
+  }
 }
