@@ -38,4 +38,8 @@ public class NavigationHelper extends HelperBase {
     return dropdown;
   }
 
+  public void gotoMainPage() {
+    driver.get("https://demowebshop.tricentis.com/");
+  }
+
 }
