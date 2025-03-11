@@ -21,4 +21,9 @@ public class CartHelper extends HelperBase {
   public boolean isThereAnItem() {
    return isElementPresent(By.name("removefromcart"));
   }
+
+  //метод findElements возвращает размер списка объектов - объект типа lists
+  public int getCartCount() {
+    return driver.findElements(By.className("product-name")).size();
+  }
 }
