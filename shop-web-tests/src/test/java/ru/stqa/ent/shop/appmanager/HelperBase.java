@@ -2,6 +2,10 @@ package ru.stqa.ent.shop.appmanager;
 
 import org.openqa.selenium.*;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
 public class HelperBase {
   protected WebDriver driver;
 
@@ -34,12 +38,20 @@ public class HelperBase {
     }
   }
 
-  protected boolean isElementPresent(By locator) {
+  public boolean isElementPresent(By locator) {
     try {
-    driver.findElement(locator);
-    return true; }
-    catch (NoSuchElementException exception) {
+      driver.findElement(locator);
+      return true;
+    } catch (NoSuchElementException exception) {
       return false;
     }
   }
+
+  public void clickAllbyName (String name) {
+    List<WebElement> elementsList = driver.findElements(By.name(name));
+    for (WebElement l : elementsList) {
+      click(By.name(name));
+    }
+  }
+
 }
