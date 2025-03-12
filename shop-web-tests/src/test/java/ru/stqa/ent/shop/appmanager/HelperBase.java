@@ -46,9 +46,9 @@ public class HelperBase {
     }
   }
 
-  public void clickAllbyClass (String classname) {
-    WebElement element1 = driver.findElement(By.className(classname));
-    WebElement element2 = driver.findElement(By.className(classname));
+  public void clickAllbyXpath (String xpath1, String xpath2, String classname) {
+    WebElement element1 = driver.findElement(By.xpath(xpath1));
+    WebElement element2 = driver.findElement(By.xpath(xpath2));
     List<WebElement> elementsList = Arrays.asList(element1, element2);
     for (WebElement l : elementsList) {
       click(By.className(classname));
