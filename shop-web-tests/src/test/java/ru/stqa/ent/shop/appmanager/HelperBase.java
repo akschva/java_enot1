@@ -1,10 +1,9 @@
 package ru.stqa.ent.shop.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class HelperBase {
   protected WebDriver driver;
@@ -47,10 +46,12 @@ public class HelperBase {
     }
   }
 
-  public void clickAllbyName (String name) {
-    List<WebElement> elementsList = driver.findElements(By.name(name));
+  public void clickAllbyClass (String classname) {
+    WebElement element1 = driver.findElement(By.className(classname));
+    WebElement element2 = driver.findElement(By.className(classname));
+    List<WebElement> elementsList = Arrays.asList(element1, element2);
     for (WebElement l : elementsList) {
-      click(By.name(name));
+      click(By.className(classname));
     }
   }
 
