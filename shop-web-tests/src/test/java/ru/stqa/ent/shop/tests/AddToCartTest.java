@@ -11,17 +11,14 @@ public class AddToCartTest extends TestBase {
 
     app.getNavigationHelper().gotoCart();
     if (app.getCartHelper().isThereAnItem()) {
-      app.getClickHelper().clickAllbyName("removefromcart");
+      app.getClickHelper().clickAllbyClass("remove-from-cart");
       app.getClickHelper().click(By.name("updatecart"));
     }
     int before = app.getCartHelper().getCartCount();
     app.getNavigationHelper().gotoMainPage();
     Thread.sleep(1000);
-    app.getClickHelper().selectItemBox(".item-box:nth-child(3) .button-2");
-    if (! app.getCartHelper().isThereAnElement("content")) {
-    app.getClickHelper().clickAddToCard(); }
-    Thread.sleep(1000);
-    if (app.getCartHelper().isThereAnElement("content")) {
+    app.getClickHelper().selectItemBox("//div[2]/div/div[2]/div[3]/div[2]/input");   //input[@value='Add to cart']
+    if (app.getCartHelper().isThereAnElement("recipient-name")) {
     app.getEmailPasswordHelper().fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
     app.getClickHelper().clickAddToCard(); }
     app.getNavigationHelper().gotoCart();

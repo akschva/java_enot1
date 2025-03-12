@@ -15,7 +15,7 @@ public class ClickHelper extends HelperBase {
   }
 
   public void selectItemBox(String selector) {
-    click(By.cssSelector(selector));
+    click(By.xpath(selector));
   }
 
   public void clickUpdateButton() {
