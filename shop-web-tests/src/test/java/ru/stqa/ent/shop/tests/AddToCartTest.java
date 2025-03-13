@@ -11,8 +11,11 @@ public class AddToCartTest extends TestBase {
 
     app.getNavigationHelper().gotoCart();
     if (app.getCartHelper().isThereAnItem()) {
-      app.getClickHelper().clickAllbyXpath("//tr[1]/td/input", "//tr[2]/td/input");
-      app.getClickHelper().click(By.name("updatecart"));
+      do {
+        app.getClickHelper().click(By.xpath("//tr[1]/td/input"));
+        app.getClickHelper().click(By.name("updatecart"));
+      }
+      while (app.getCartHelper().isThereAnItem());
     }
     int before = app.getCartHelper().getCartCount();
     app.getNavigationHelper().gotoMainPage();
