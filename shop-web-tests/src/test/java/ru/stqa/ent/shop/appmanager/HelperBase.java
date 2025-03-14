@@ -3,8 +3,6 @@ package ru.stqa.ent.shop.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 
-import java.util.*;
-
 public class HelperBase {
   protected WebDriver driver;
 
@@ -25,6 +23,10 @@ public class HelperBase {
 
   public void click(By locator) {
     driver.findElement(locator).click();
+  }
+
+  public void clear(By locator) {
+    driver.findElement(locator).clear();
   }
 
   // проверка на отсутствие диалогового окна

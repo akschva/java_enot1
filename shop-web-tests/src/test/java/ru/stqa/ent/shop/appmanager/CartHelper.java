@@ -31,6 +31,13 @@ public class CartHelper extends HelperBase {
   public int getCartCount() {
     return driver.findElements(By.className("product-name")).size();
   }
+
+  public int getCartItemQty() {
+    WebElement l = driver.findElement(By.className("qty-input"));
+    String qty = l.getText();
+    int qtyint = Integer.parseInt(String.valueOf(l));
+    return qtyint;
+  }
   
   public boolean isThereAnElement(String className) {
     return isElementPresent(By.className(className));
@@ -41,12 +48,13 @@ public class CartHelper extends HelperBase {
     driver.findElements(By.className("product-name")).get(index).click();
   }
 
-  public List<CartData> getCartList() {
+  public List<CartData> getQtytList() {
     List<CartData> cartitems = new ArrayList<CartData>();
     List<WebElement> cartelements = driver.findElements(By.className("qty-input"));
     for (WebElement cartelement : cartelements) {
-      int qty = cartelement.getCssValue();
-      CartData cartqty = new CartData(qty);
+      String qty = cartelement.getText();
+      int quantity = Integer.parseInt(qty);
+      CartData cartqty = new CartData(null, quantity);
       cartitems.add(cartqty);
     }
     return cartitems;
