@@ -16,10 +16,12 @@ public class CartTotalPrice extends TestBase {
     app.getNavigationHelper().gotoCart();
 //    List<CartData> before = app.getCartHelper().getQtytList();
 //    String totalqty = before.toString();
-    int qtybefore = app.getCartHelper().getCartItemQty();
-    app.getClickHelper().type(By.className("qty-input"), String.valueOf(qtybefore + 1));
+    int qtybefore = app.getCartHelper().getCartItemQty1();
+    String beforestring = String.valueOf(qtybefore + 1);
+    System.out.println(beforestring);
+    app.getClickHelper().type(By.className("qty-input"), beforestring);
     app.getClickHelper().clickUpdateButton();
-    int qtyafter = app.getCartHelper().getCartItemQty();
+    int qtyafter = app.getCartHelper().getCartItemQty1();
 //    List<CartData> after = app.getCartHelper().getQtytList();
     Assert.assertEquals(qtybefore, qtyafter + 1);
   }

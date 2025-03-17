@@ -32,12 +32,13 @@ public class CartHelper extends HelperBase {
     return driver.findElements(By.className("product-name")).size();
   }
 
-  public int getCartItemQty() {
-    WebElement l = driver.findElement(By.className("qty-input"));
+  public int getCartItemQty1() {
+    WebElement l = driver.findElement(By.name("itemquantity5132900"));
     String qty = l.getText();
-    int qtyint = Integer.parseInt(String.valueOf(l));
-    return qtyint;
+    int intqty = Integer.parseInt(qty);
+    return intqty;
   }
+
   
   public boolean isThereAnElement(String className) {
     return isElementPresent(By.className(className));
