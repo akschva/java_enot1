@@ -33,7 +33,7 @@ public class CartHelper extends HelperBase {
   }
 
   public int getCartItemQty1() {
-    WebElement l = driver.findElement(By.name("itemquantity5132900"));
+    WebElement l = driver.findElement(By.className("qty-input"));
     String qty = l.getText();
     int intqty = Integer.parseInt(qty);
     return intqty;
