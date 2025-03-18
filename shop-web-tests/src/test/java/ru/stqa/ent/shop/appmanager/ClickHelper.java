@@ -19,7 +19,7 @@ public class ClickHelper extends HelperBase {
   }
 
   public void clickUpdateButton() {
-    click(By.cssSelector("[id*='add-to-cart-button-']"));
+    click(By.name("updatecart"));
   }
 
   public void chooseGender() {
