@@ -3,6 +3,8 @@ package ru.stqa.ent.shop.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.stqa.ent.shop.model.CartData;
 
 import java.util.ArrayList;
@@ -33,8 +35,8 @@ public class CartHelper extends HelperBase {
   }
 
   public int getCartItemQty1() {
-    WebElement l = driver.findElement(By.className("qty-input"));
-    String qty = l.getText();
+    WebElement l = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr[1]/td[5]/input"));
+    String qty = l.getAttribute("value");
     int intqty = Integer.parseInt(qty);
     return intqty;
   }

@@ -23,7 +23,7 @@ public class CartTotalPrice extends TestBase {
     app.getClickHelper().clickUpdateButton();
     int qtyafter = app.getCartHelper().getCartItemQty1();
 //    List<CartData> after = app.getCartHelper().getQtytList();
-    Assert.assertEquals(qtybefore, qtyafter + 1);
+    Assert.assertEquals(qtybefore + 1, qtyafter);
   }
 
 
