@@ -23,7 +23,7 @@ public class AddToCartTest extends TestBase {
     app.getClickHelper().selectItemBox("//div[2]/div/div[2]/div[3]/div[2]/input");   //input[@value='Add to cart']
     if (app.getCartHelper().isThereAnElement("recipient-name")) {
     app.getEmailPasswordHelper().fillRecipientForm(new RecipientForm("name1", "name1@mail.ru"));
-    app.getClickHelper().clickAddToCard(); }
+    app.getClickHelper().clickAddToCart(); }
     app.getNavigationHelper().gotoCart();
     int after = app.getCartHelper().getCartCount();
     Assert.assertEquals(after, before + 1);

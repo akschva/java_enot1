@@ -12,8 +12,8 @@ public void testCartTotalPrice() throws InterruptedException {
   // Надо еще тест, чтобы для каждого товара в корзине считалась правильная общая сумма
     app.getNavigationHelper().gotoCart();
   if (! app.getCartHelper().isThereAnItem()) {
-    app.getCartHelper().addCartItem(".item-box:nth-child(3) .button-2");
-    app.getCartHelper().addCartItem(".item-box:nth-child(4) .button-2");
+    app.getCartHelper().addCartItem("/html/body/div[4]/div[1]/div[4]/div[3]/div/div/div[3]/div[3]/div/div[2]/div[3]/div[2]/input");
+    app.getCartHelper().addCartItem("/html/body/div[4]/div[1]/div[4]/div[3]/div/div/div[3]/div[3]/div/div[2]/div[3]/div[2]/input");
     }
   Thread.sleep(1000);
   double price = app.getCartHelper().getItemPrice(0);

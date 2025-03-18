@@ -10,7 +10,7 @@ public class ClickHelper extends HelperBase {
     super(driver);
   }
 
-  public void clickAddToCard() {
+  public void clickAddToCart() {
     click(By.cssSelector("[id*='add-to-cart-button-']"));
   }
 
@@ -43,6 +43,18 @@ public class ClickHelper extends HelperBase {
     if (isElementPresent(By.id("products-orderby"))) {
       new Select(driver.findElement(By.id("products-orderby"))).selectByVisibleText(text);
     }
+  }
+
+  public void clickAddToWishlist() {
+    click(By.cssSelector("[id*='add-to-wishlist-button']"));
+  }
+
+  public void clickAddToCart2() {
+    click(By.name("addtocartbutton"));
+  }
+
+  public void clickRemove() {
+    click(By.name("removefromcart"));
   }
 
 }

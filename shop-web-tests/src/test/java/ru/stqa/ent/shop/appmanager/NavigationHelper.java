@@ -42,4 +42,12 @@ public class NavigationHelper extends HelperBase {
     driver.get("https://demowebshop.tricentis.com/");
   }
 
+  public void gotoMusicPage() {
+    click(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div.header-menu > ul.top-menu > li:nth-child(5) > a"));
+  }
+
+  public void gotoWishlist() {
+    click(By.cssSelector(".ico-wishlist > .cart-label"));
+  }
+
 }

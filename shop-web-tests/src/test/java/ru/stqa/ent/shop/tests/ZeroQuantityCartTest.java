@@ -10,7 +10,7 @@ public class ZeroQuantityCartTest extends TestBase {
     app.getNavigationHelper().gotoCart();
     int before = app.getCartHelper().getCartCount();
     if (! app.getCartHelper().isThereAnItem()) {
-      app.getCartHelper().addCartItem(".item-box:nth-child(3) .button-2");
+      app.getCartHelper().addCartItem("/html/body/div[4]/div[1]/div[4]/div[3]/div/div/div[3]/div[3]/div/div[2]/div[3]/div[2]/input");
     }
     if (! app.getClickHelper().isThereEditButton()) {
       app.getClickHelper().click(By.className("product-name")); }

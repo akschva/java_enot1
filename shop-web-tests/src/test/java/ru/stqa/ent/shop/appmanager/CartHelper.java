@@ -4,34 +4,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.ent.shop.model.CartData;
+import ru.stqa.ent.shop.model.MusicCards;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class CartHelper extends HelperBase {
-  private ApplicationManager app;
+  public ApplicationManager app;
 
   public CartHelper(WebDriver driver) {
     super(driver);
   }
 
-  public void addCartItem(String selector) throws InterruptedException {
+  public void addCartItem(String xpathExpression) throws InterruptedException {
     driver.get("https://demowebshop.tricentis.com/");
-    app.getClickHelper().selectItemBox(selector);
+    click(By.xpath(xpathExpression));
     Thread.sleep(1000);
-    if (isElementPresent(By.className("option-list"))) ;
+    if (isElementPresent(By.className("required")));
     {
-      List<WebElement> radiobuttons = driver.findElements(By.className("option-list"));
+      List<WebElement> radiobuttons = driver.findElements(By.cssSelector("[id*=product_attribute_]"));
       for (WebElement r : radiobuttons) {
         String selected = r.getAttribute("checked");
         if (!selected.equalsIgnoreCase("true")) {
           r.click();
         }
       }
+      driver.findElement(By.id("add-to-cart-button-72")).click();
     }
-    app.getClickHelper().clickAddToCard();
-    app.getNavigationHelper().gotoCart();
+    driver.findElement(By.cssSelector(".ico-cart > .cart-label")).click();
   }
 
   public boolean isThereAnItem() {
@@ -90,6 +91,19 @@ public class CartHelper extends HelperBase {
     String prices = driver.findElements(By.className("product-unit-price")).get(index).getText();
     double priced = Double.valueOf(prices);
     return priced;
+  }
+
+  public List<MusicCards> getMusicList() {
+    List<MusicCards> mcards = new ArrayList<MusicCards>();
+    List<WebElement> names = driver.findElements(By.className("product-name"));
+    for (WebElement n : names) {
+      String name = n.getText();
+      if (name.contains("Music") || name.contains("Album")) {
+        MusicCards mcard = new MusicCards(name);
+        mcards.add(mcard);
+      }
+    }
+    return mcards;
   }
 }
 
