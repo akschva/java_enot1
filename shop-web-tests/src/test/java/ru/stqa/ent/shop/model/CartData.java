@@ -6,7 +6,7 @@ public class CartData {
   public int quantity;
 
 
-  public CartData(Double price, int qty) {
+  public CartData(double price, int qty) {
     double total = price * qty;
     this.producttotal = total;
     this.productprice = price;

@@ -3,8 +3,6 @@ package ru.stqa.ent.shop.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.stqa.ent.shop.model.CartData;
 
 import java.util.ArrayList;
@@ -18,15 +16,26 @@ public class CartHelper extends HelperBase {
     super(driver);
   }
 
-  public void addCartItem() throws InterruptedException {
+  public void addCartItem(String selector) throws InterruptedException {
     driver.get("https://demowebshop.tricentis.com/");
-    app.getClickHelper().selectItemBox(".item-box:nth-child(3) .button-2");
+    app.getClickHelper().selectItemBox(selector);
     Thread.sleep(1000);
+    if (isElementPresent(By.className("option-list"))) ;
+    {
+      List<WebElement> radiobuttons = driver.findElements(By.className("option-list"));
+      for (WebElement r : radiobuttons) {
+        String selected = r.getAttribute("checked");
+        if (!selected.equalsIgnoreCase("true")) {
+          r.click();
+        }
+      }
+    }
+    app.getClickHelper().clickAddToCard();
     app.getNavigationHelper().gotoCart();
   }
 
   public boolean isThereAnItem() {
-   return isElementPresent(By.name("removefromcart"));
+    return isElementPresent(By.name("removefromcart"));
   }
 
   //метод findElements возвращает размер списка объектов - объект типа lists
@@ -34,14 +43,14 @@ public class CartHelper extends HelperBase {
     return driver.findElements(By.className("product-name")).size();
   }
 
-  public int getCartItemQty1() {
-    WebElement l = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr[1]/td[5]/input"));
+  public int getCartItemQty1(String xpathExpression) {
+    WebElement l = driver.findElement(By.xpath(xpathExpression));
     String qty = l.getAttribute("value");
     int intqty = Integer.parseInt(qty);
     return intqty;
   }
 
-  
+
   public boolean isThereAnElement(String className) {
     return isElementPresent(By.className(className));
   }
@@ -51,15 +60,36 @@ public class CartHelper extends HelperBase {
     driver.findElements(By.className("product-name")).get(index).click();
   }
 
-  public List<CartData> getQtytList() {
+  public List<CartData> getQtyPriceList() {
     List<CartData> cartitems = new ArrayList<CartData>();
-    List<WebElement> cartelements = driver.findElements(By.className("qty-input"));
-    for (WebElement cartelement : cartelements) {
-      String qty = cartelement.getText();
+    List<WebElement> elementsqty = driver.findElements(By.className("qty-input"));
+    List<WebElement> elementsprice = driver.findElements(By.className("product-unit-price"));
+
+    for (WebElement item : elementsqty) {
+      String qty = item.getAttribute("value");
       int quantity = Integer.parseInt(qty);
-      CartData cartqty = new CartData(null, quantity);
-      cartitems.add(cartqty);
+
+      for (WebElement item2 : elementsprice) {
+        String price = item2.getAttribute("value");
+        double priceprice = Double.valueOf(price);
+        CartData cartqty = new CartData(priceprice, quantity);
+        cartitems.add(cartqty);
+      }
+      return cartitems;
     }
     return cartitems;
   }
+
+  public double getProductTotal (int index) {
+    String total = driver.findElements(By.className("product-subtotal")).get(index).getText();
+    double totald = Double.valueOf(total);
+    return totald;
+  }
+
+  public double getItemPrice (int index) {
+    String prices = driver.findElements(By.className("product-unit-price")).get(index).getText();
+    double priced = Double.valueOf(prices);
+    return priced;
+  }
 }
+
