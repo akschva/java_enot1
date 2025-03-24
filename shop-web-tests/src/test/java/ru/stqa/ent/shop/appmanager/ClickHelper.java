@@ -14,8 +14,8 @@ public class ClickHelper extends HelperBase {
     click(By.cssSelector("[id*='add-to-cart-button-']"));
   }
 
-  public void selectItemBox(String selector) {
-    click(By.xpath(selector));
+  public void selectItemBox(String xpath) {
+    click(By.xpath(xpath));
   }
 
   public void clickUpdateButton() {
