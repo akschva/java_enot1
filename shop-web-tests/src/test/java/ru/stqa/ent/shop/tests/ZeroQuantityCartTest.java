@@ -17,6 +17,7 @@ public class ZeroQuantityCartTest extends TestBase {
     else {
       app.getClickHelper().clickEditButton(); }
     app.getFieldRedactorHelper().changeQuantity("3");
+    Thread.sleep(1000);
     app.getClickHelper().clickUpdateButton();
     app.getNavigationHelper().gotoCart();
     app.getFieldRedactorHelper().changeQuantity("1");
