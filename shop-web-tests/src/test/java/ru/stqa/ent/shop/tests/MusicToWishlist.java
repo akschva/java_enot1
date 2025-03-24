@@ -2,12 +2,15 @@ package ru.stqa.ent.shop.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import org.openqa.selenium.By;
 import ru.stqa.ent.shop.model.MusicCards;
 
 import java.util.List;
 
+@Disabled("Disabled until CustomerService is up!")
 public class MusicToWishlist extends TestBase {
+  @Disabled
 
   @Test
   public void testMusictoWishlist() throws InterruptedException {
