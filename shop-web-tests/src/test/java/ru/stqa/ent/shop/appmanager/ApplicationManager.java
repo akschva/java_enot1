@@ -51,7 +51,7 @@ public class ApplicationManager {
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
 
-    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //имплицитное ожидание, сколько ждать до появления элементов
+    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); //имплицитное ожидание, сколько ждать до появления элементов
     driver.get("https://demowebshop.tricentis.com/");
     navigationHelper = new NavigationHelper(driver); //чтобы хелпер получил доступ к ссылке на драйвер, передаем ее в качестве параметра в конструктор
     emailPasswordHelper = new EmailPasswordHelper(driver);
