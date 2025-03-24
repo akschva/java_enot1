@@ -44,6 +44,11 @@ public class CartHelper extends HelperBase {
     return driver.findElements(By.className("product-name")).size();
   }
 
+  public List<WebElement> getCartList() {
+    List<WebElement> cartlist = driver.findElements(By.className("product-name"));
+    return cartlist;
+  }
+
   public int getCartItemQty1(String xpathExpression) {
     WebElement l = driver.findElement(By.xpath(xpathExpression));
     String qty = l.getAttribute("value");
@@ -73,7 +78,7 @@ public class CartHelper extends HelperBase {
       for (WebElement item2 : elementsprice) {
         String price = item2.getAttribute("value");
         double priceprice = Double.valueOf(price);
-        CartData cartqty = new CartData(priceprice, quantity);
+        CartData cartqty = new CartData(priceprice, quantity, null);
         cartitems.add(cartqty);
       }
       return cartitems;
