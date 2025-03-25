@@ -30,10 +30,14 @@ public class GiftcardHelper extends HelperBase {
 
       //*[@data-fee=’1010′]/ancestor::div[contains(@class,’js-price’)] — получаем предка(ancestor), с классом содержащим js-price
 //*[@data-fee=’1010′]/ancestor::div[contains(@class,’js-price’)]//a — у нашего элемента просто ищем вложенную ссылку (нашу кнопку).
-      gcdata.add(new GiftcardData().withRecipEmail(recip[3]).withRecipName(recip[1]).withYEmail(you[3]).withYName(you[1]).withQuantity(Qty));
+      gcdata.add(new GiftcardData().withRecipEmail(recip[3]).withRecipName(recip[1]).withYEmail(you[4]).withYName(you[2]).withQuantity(Qty));
     }
     return gcdata;
   }
+
+
+  // можно фильтровать поток с помозью функции filter ---- .stream().filter((s) -> s.equals("")).collect(Collectors.joining("\n"));
+  // и глобальные фции (static) можно вызывать в другой фции с помощью ::
 
 //  public  GiftcardData gcardInfoEditForm(GiftcardData giftcardData) {
 //    String Recipname = driver.findElement(By.className("recipient-name"))
