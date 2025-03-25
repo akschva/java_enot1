@@ -53,16 +53,29 @@ public class CartHelper extends HelperBase {
     return cartlist;
   }
 
-  public Set<CartData> all() {
-    Carts items = new Carts();
+
+  // Кеширование списка в корзине типа
+  private Carts cartsCache = null;
+
+  public Carts all() {
+    if (cartsCache != null) {
+      return new Carts(cartsCache);
+    }
+
+    cartsCache = new Carts();
     List<WebElement> elements = driver.findElements(By.className("product-name"));
     for (WebElement el : elements) {
       String name = el.getText();
       int quantity = Integer.parseInt(el.findElement(By.className("qty-input")).getAttribute("value"));
-      items.add(new CartData().withQuantity(quantity).withName(name));
+      cartsCache.add(new CartData().withQuantity(quantity).withName(name));
     }
-    return items;
+    return new Carts(cartsCache);
   }
+
+  // и надо сбрасывать кэш там, где он не нужен и мы точно знаем, что список поменялся - cartCash = null;
+
+
+
 
   public int getCartItemQty1(String xpathExpression) {
     WebElement l = driver.findElement(By.xpath(xpathExpression));
