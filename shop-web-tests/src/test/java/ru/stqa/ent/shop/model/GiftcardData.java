@@ -45,5 +45,6 @@ public class GiftcardData {
   }
 
 
-
+  public void add(GiftcardData giftcardData) {
+  }
 }
