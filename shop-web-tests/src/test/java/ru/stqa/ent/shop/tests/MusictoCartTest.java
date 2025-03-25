@@ -5,10 +5,15 @@ import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
 import org.openqa.selenium.By;
 import ru.stqa.ent.shop.model.CartData;
+import ru.stqa.ent.shop.model.Carts;
+
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @Disabled("Disabled until CustomerService is up!")
 public class MusictoCartTest extends TestBase {
@@ -23,7 +28,7 @@ public class MusictoCartTest extends TestBase {
       app.getCartHelper().addCartItem("/html/body/div[4]/div[1]/div[4]/div[3]/div/div/div[3]/div[3]/div/div[2]/div[3]/div[2]/input");
     }
     Thread.sleep(1000);
-    Set<CartData> before = app.getCartHelper().all();
+    Carts before = app.getCartHelper().all();
 //    int index = before.size() - 1;
     /* каждый вызываемый метод возвращает тот же объект, fluent интерфейс "шаблон bilder" */
 //    CartData cart = new CartData()
@@ -40,9 +45,10 @@ public class MusictoCartTest extends TestBase {
     String name = app.driver.findElement(By.tagName("Picture of 3rd Album")).getText();
 
     CartData cart = new CartData().withName(name);
-    Set<CartData> after = app.getCartHelper().all();
+    Carts after = app.getCartHelper().all();
 
     Assert.assertEquals(after.size(), before.size() + 1);
+
 
     /* map to int превращает поток из объектов типа CartData в поток целых чисел - id, потому что числа сравнивать проще*/
 //    cart.withId(after.stream().mapToInt(c) -> c.getId()).max().getAsInt());
@@ -65,6 +71,10 @@ public class MusictoCartTest extends TestBase {
 
 //    cart.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
 //    before.add(cart);
+   assertThat(after, equalTo(before.withAdded(cart)));
+
+
+
 //    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
 
   }

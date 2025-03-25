@@ -1,9 +1,11 @@
 package ru.stqa.ent.shop.appmanager;
 
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.ent.shop.model.CartData;
+import ru.stqa.ent.shop.model.Carts;
 import ru.stqa.ent.shop.model.MusicCards;
 
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class CartHelper extends HelperBase {
   }
 
   public Set<CartData> all() {
-    Set<CartData> items = new HashSet<CartData>();
+    Carts items = new Carts();
     List<WebElement> elements = driver.findElements(By.className("product-name"));
     for (WebElement el : elements) {
       String name = el.getText();
