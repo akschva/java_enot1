@@ -19,6 +19,7 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper; // инициализация перенесена в метод init после создания драйвера
   private EmailPasswordHelper emailPasswordHelper; // emailPasswordHelper сгенерированный вспомогательный метод, дающий доступ к этому полю
   private CartHelper cartHelper;
+  private GiftcardHelper giftcardHelper;
   public Map<String, Object> vars;
   JavascriptExecutor js;
 
@@ -91,5 +92,9 @@ public class ApplicationManager {
 
   public CartHelper getCartHelper() {
     return cartHelper;
+  }
+
+  public GiftcardHelper getGiftcardHelper() {
+    return giftcardHelper;
   }
 }
