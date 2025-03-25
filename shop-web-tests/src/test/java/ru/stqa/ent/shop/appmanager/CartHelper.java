@@ -7,7 +7,9 @@ import ru.stqa.ent.shop.model.CartData;
 import ru.stqa.ent.shop.model.MusicCards;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class CartHelper extends HelperBase {
@@ -47,6 +49,17 @@ public class CartHelper extends HelperBase {
   public List<CartData> getCartList() {
     List<WebElement> cartlist = driver.findElements(By.className("product-name"));
     return cartlist;
+  }
+
+  public Set<CartData> all() {
+    Set<CartData> items = new HashSet<CartData>();
+    List<WebElement> elements = driver.findElements(By.className("product-name"));
+    for (WebElement el : elements) {
+      String name = el.getText();
+      int quantity = Integer.parseInt(el.findElement(By.className("qty-input")).getAttribute("value"));
+      items.add(new CartData().withQuantity(quantity).withName(name));
+    }
+    return items;
   }
 
   public int getCartItemQty1(String xpathExpression) {

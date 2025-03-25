@@ -1,5 +1,7 @@
 package ru.stqa.ent.shop.model;
 
+import java.util.Objects;
+
 public class CartData {
   private Integer id = Integer.MAX_VALUE;
   private Double productprice;
@@ -10,6 +12,18 @@ public class CartData {
   public String getName () {
     return name;
  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    CartData cartData = (CartData) o;
+    return Objects.equals(id, cartData.id) && Objects.equals(name, cartData.name);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name);
+  }
 
   public int getId () {
     return id;
