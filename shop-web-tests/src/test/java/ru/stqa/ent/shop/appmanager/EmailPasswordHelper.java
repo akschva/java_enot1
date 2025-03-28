@@ -26,7 +26,14 @@ public class EmailPasswordHelper extends HelperBase {
   public void fillRecipientForm(RecipientForm recipientForm) {
     type(By.id("giftcard_2_RecipientEmail"), recipientForm.getEmail());
     type(By.id("giftcard_2_RecipientName"), recipientForm.getName());
+    // attach (By.name("photo")), CartData.getPhoto(); НО метод type создать отдельный, убрав из начала клик (иначе откроется ненужное диалоговое окно выбора файла)
   }
+
+  /* public void attach(By locator, File file) {
+  if (file != null) {
+  driver.findElement(locator).sendKeys(file.getAbsolutePath());
+   }
+  }*/
 
   public void fillConfirmPassword(String password) {
     type(By.id("Password"), password);
