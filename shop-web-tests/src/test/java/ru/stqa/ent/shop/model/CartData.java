@@ -1,5 +1,6 @@
 package ru.stqa.ent.shop.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class CartData {
@@ -7,7 +8,16 @@ public class CartData {
   private Double productprice;
   private Integer quantity;
   private String name;
+  private File photo;
 
+  public File getPhoto() {
+    return photo;
+  }
+
+  public CartData withPhoto(File photo) {
+    this.photo = photo;
+    return this;
+  }
 
   public String getName () {
     return name;
