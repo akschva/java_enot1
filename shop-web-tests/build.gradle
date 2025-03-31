@@ -22,6 +22,7 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '4.28.1'
     implementation group: 'org.junit.platform', name: 'junit-platform-suite', version: '1.13.0-M2'
     implementation group: 'org.hamcrest', name: 'hamcrest', version: '3.0'
+    implementation group: 'com.tngtech.junit.dataprovider', name: 'junit-jupiter-dataprovider', version: '2.10'
 
 }
 
