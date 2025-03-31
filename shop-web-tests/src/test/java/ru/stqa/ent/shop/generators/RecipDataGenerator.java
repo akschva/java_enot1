@@ -4,13 +4,16 @@ import ru.stqa.ent.shop.model.CartData;
 import ru.stqa.ent.shop.model.RecipData;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class RecipDataGenerator {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     int count = Integer.parseInt(args[0]); //пароль и почта
     File file = new File(args[1]);
 
@@ -28,8 +31,13 @@ public class RecipDataGenerator {
     return recipd1;
   }
 
-  private static void save(List<RecipData> recipd1, File file) {
-
+  private static void save(List<RecipData> recipd1, File file) throws IOException {
+    System.out.println(new File(".").getAbsolutePath());
+    Writer writer = new FileWriter(file);
+    for (RecipData recipData : recipd1) {
+      writer.write(String.format("%s;%s\n", recipData.getPassword(),recipData.getEmail()));
+    }
+    writer.close();
   }
 // в курсе Алексей делает сразу список - группа с параметрами, для каждого генератор, но можно так
 //  private static String generateRecipdpass(Random rng, String password, int length) {
