@@ -7,9 +7,11 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.ent.shop.model.GiftcardData;
 import ru.stqa.ent.shop.model.RecipientForm;
 
+@Disabled
 public class GiftcartTests extends TestBase {
 
   @Disabled
+  @Test(
   public void testGiftCards() throws InterruptedException {
     app.getNavigationHelper().gotoMainPage();
     app.getClickHelper().click(By.linkText("Gift Cards"));
