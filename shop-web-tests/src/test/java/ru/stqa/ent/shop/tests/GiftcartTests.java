@@ -11,7 +11,7 @@ import ru.stqa.ent.shop.model.RecipientForm;
 public class GiftcartTests extends TestBase {
 
   @Disabled
-  @Test(
+  @Test
   public void testGiftCards() throws InterruptedException {
     app.getNavigationHelper().gotoMainPage();
     app.getClickHelper().click(By.linkText("Gift Cards"));
@@ -22,7 +22,7 @@ public class GiftcartTests extends TestBase {
     GiftcardData giftcard = app.getGiftcardHelper().all().iterator().next();
     GiftcardData gcardInfoEditForm = app.getGiftcardHelper().gcardInfoEditForm(giftcard);
 
-    MatcherAssert.assertThat(giftcard.g  gcardInfoEditForm);
+    MatcherAssert.assertThat(giftcard.g, gcardInfoEditForm);
   }
 
 

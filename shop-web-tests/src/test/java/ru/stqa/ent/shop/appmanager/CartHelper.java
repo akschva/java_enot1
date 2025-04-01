@@ -1,6 +1,5 @@
 package ru.stqa.ent.shop.appmanager;
 
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,9 +8,7 @@ import ru.stqa.ent.shop.model.Carts;
 import ru.stqa.ent.shop.model.MusicCards;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class CartHelper extends HelperBase {
@@ -48,7 +45,7 @@ public class CartHelper extends HelperBase {
     return driver.findElements(By.className("product-name")).size();
   }
 
-  public List<CartData> getCartList() {
+  public List<WebElement> getCartList() {
     List<WebElement> cartlist = driver.findElements(By.className("product-name"));
     return cartlist;
   }
