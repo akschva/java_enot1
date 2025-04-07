@@ -35,10 +35,27 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/$s.properties",target))));
 
-    if (browser.equals(BrowserType.FIREFOX)) {
+    String browser = "chrome";
+//Checking for 'firefox' parameters
+    if(browser.equalsIgnoreCase("firefox")){
+//creating firefox instance
+      System.setProperty("webdriver.firefox.bin","C:\\Program Files\\Mozilla Firefox\\firefox.exe");
       driver = new FirefoxDriver();
-    } else if (browser.equals(BrowserType.CHROME)) {
+    }
+//Checking for 'chrome' parameters
+    else if(browser.equalsIgnoreCase("chrome")){
+//Creating chrome instance
       driver = new ChromeDriver();
+      ChromeOptions options = new ChromeOptions();
+      options.setAcceptInsecureCerts(true);
+    }
+    else{
+//If the browser is not passed then throw the below exception
+      try {
+        throw new Exception("Invalid browser");
+      } catch (Exception e) {
+        throw new RuntimeException(e);
+      }
     }
     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     driver.get(properties.getProperty("web.baseUrl"));

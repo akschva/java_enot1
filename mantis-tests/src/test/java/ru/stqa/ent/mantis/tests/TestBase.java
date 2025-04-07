@@ -1,6 +1,5 @@
 package ru.stqa.ent.mantis.tests;
 
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import ru.stqa.ent.mantis.appmanager.ApplicationManager;
@@ -8,7 +7,7 @@ import ru.stqa.ent.mantis.appmanager.ApplicationManager;
 public class TestBase {
 
   protected static final ApplicationManager app
-          = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
+          = new ApplicationManager(System.getProperty("browser", "chrome"));
 
   @BeforeSuite
   public void setUp() throws Exception {
