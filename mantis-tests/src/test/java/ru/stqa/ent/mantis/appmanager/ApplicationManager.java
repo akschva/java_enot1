@@ -35,7 +35,7 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/$s.properties",target))));
 
-    String browser = "chrome";
+//    String browser = "firefox";
 //Checking for 'firefox' parameters
     if(browser.equalsIgnoreCase("firefox")){
 //creating firefox instance

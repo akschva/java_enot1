@@ -7,7 +7,7 @@ import ru.stqa.ent.mantis.appmanager.ApplicationManager;
 public class TestBase {
 
   protected static final ApplicationManager app
-          = new ApplicationManager(System.getProperty("browser", "chrome"));
+          = new ApplicationManager(System.getProperty("browser", "firefox"));
 
   @BeforeSuite
   public void setUp() throws Exception {
