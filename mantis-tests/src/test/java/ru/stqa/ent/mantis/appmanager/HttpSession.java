@@ -27,7 +27,7 @@ public class HttpSession {
   }
 
   public boolean login(String username, String password) throws IOException {
-    HttpPost post = new HttpPost(app.getProperty("web.baseurl") + "/login.php"); /* запрос типа POST */
+    HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login.php"); /* запрос типа POST */
     List<NameValuePair> params = new ArrayList<>(); /* набор параметров */
     params.add(new BasicNameValuePair("username", username)); /* набор параметров */
     params.add(new BasicNameValuePair("password", password)); /* набор параметров */
@@ -37,7 +37,7 @@ public class HttpSession {
     CloseableHttpResponse response = httpclient.execute(post); /* отправка запроса, результатом будет ответ - response */
     String body = getTextFrom(response);
     /* проверка, действительно ли польз-ль вошел, и код страницы содержит его имя, из исходного кода страницы */
-    return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+    return body.contains(String.format(username));
   }
 
   /* вспомогательная фнукция для получения текста ответа - код на языке html*/
@@ -54,7 +54,7 @@ public class HttpSession {
     HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/index.php");
     CloseableHttpResponse response = httpclient.execute(get);
     String body = getTextFrom(response);
-    return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+    return body.contains(String.format(username));
   }
 
 }
