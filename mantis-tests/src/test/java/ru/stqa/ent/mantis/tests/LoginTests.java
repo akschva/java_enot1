@@ -2,6 +2,8 @@ package ru.stqa.ent.mantis.tests;
 
 import org.testng.annotations.Test;
 import ru.stqa.ent.mantis.appmanager.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
