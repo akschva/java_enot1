@@ -34,7 +34,7 @@ public class ApplicationManager {
 
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
-    properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
+    properties.load(new FileReader(new File(String.format("C:\\Users\\Admin\\Documents\\GitHub\\java_enot1\\mantis-tests\\src\\test\\resources\\local.properties", target))));
   }
 
 
