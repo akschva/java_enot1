@@ -10,7 +10,7 @@ public class Rndomphoto extends TestBase {
   @Disabled
   public void testRndomphoto() {
     File photo = new File("src/test/resources/cat.jpg");
-    app.getEmailPasswordHelper().fillRecipientForm(new CartData().withPhoto(photo));
+//    app.getEmailPasswordHelper().fillRecipientForm(new CartData().withPhoto(photo));
   }
 
 
